@@ -32,13 +32,13 @@ app.get('/calc', function(req,res){
     var y = parseInt(req.query.y);
     var op = req.query.operator;
 
-    if (op == "add") {
+    if (op === "add") {
         res.send("X + Y =" + (x+y));
-    } else if (op == "sub") {
+    } else if (op === "sub") {
         res.send("X - Y =" + (x-y));
-    } else if (op == "mult") {
+    } else if (op === "mult") {
         res.send("X * Y =" + (x*y));
-    } else if (op == "div"){
+    } else if (op === "div"){
         res.send("X / Y =" + (x/y));
     } else {
         res.send("huh??");
