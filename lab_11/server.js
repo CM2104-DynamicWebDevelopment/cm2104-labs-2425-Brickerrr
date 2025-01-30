@@ -1,5 +1,6 @@
 var express = require('express');
 var knockknock= require('knock-knock-jokes');
+app.use(express.static('public'));
 var app = express();
 var joke = knockknock();
 
@@ -33,13 +34,13 @@ app.get('/calc', function(req,res){
     var op = req.query.operator;
 
     if (op === "add") {
-        res.send("X + Y =" + (x+y));
+        res.send("X + Y = " + (x+y));
     } else if (op === "sub") {
-        res.send("X - Y =" + (x-y));
+        res.send("X - Y = " + (x-y));
     } else if (op === "mult") {
-        res.send("X * Y =" + (x*y));
+        res.send("X * Y = " + (x*y));
     } else if (op === "div"){
-        res.send("X / Y =" + (x/y));
+        res.send("X / Y = " + (x/y));
     } else {
         res.send("huh??");
     }
