@@ -3,6 +3,7 @@ var knockknock= require('knock-knock-jokes');
 var app = express();
 var joke = knockknock();
 app.use(express.static('public'));
+app.use(express.urlencoded({extended:true}))
 
 app.get('/', function(req, res){
     res.send("Hello World! by express");
@@ -51,4 +52,10 @@ app.get('/getform', function(req,res){
     var quest = req.query.quest;
     res.send("HI " + name + ", i am sure you will " + quest);
 })
+
+app.post('/postform', function(req,res){
+    var name = req.body.name;
+    var quest = req.body.quest;
+    res.send("HI " + name + " i am sure you will " + quest);
+});
 app.listen(8080);
