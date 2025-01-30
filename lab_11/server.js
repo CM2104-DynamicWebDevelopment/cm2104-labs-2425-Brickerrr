@@ -5,6 +5,10 @@ var joke = knockknock();
 app.use(express.static('public'));
 app.use(express.urlencoded({extended:true}))
 
+app.use(function(req,res,next) {
+    res.send('This page does not exist!');
+})
+
 app.get('/', function(req, res){
     res.send("Hello World! by express");
 });
@@ -58,4 +62,5 @@ app.post('/postform', function(req,res){
     var quest = req.body.quest;
     res.send("HI " + name + " i am sure you will " + quest);
 });
+
 app.listen(8080);
