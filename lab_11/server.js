@@ -44,5 +44,11 @@ app.get('/calc', function(req,res){
     } else {
         res.send("huh??");
     }
+});
+
+app.get('/getform', function(req,res){
+    var name = req.query.name;
+    var quest = req.query.quest;
+    res.send("HI " + name + ", i am sure you will " + quest);
 })
 app.listen(8080);
