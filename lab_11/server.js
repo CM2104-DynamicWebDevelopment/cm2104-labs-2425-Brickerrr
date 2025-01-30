@@ -1,5 +1,7 @@
 var express = require('express');
+var knockknock= require('knock-knock-jokes');
 var app = express();
+var joke = knockknock();
 
 app.get('/', function(req, res){
     res.send("Hello World! by express");
@@ -13,6 +15,10 @@ app.get('/test', function(req, res){
 
 app.get('/test2', function(req,res){
     res.send("this is the final destination!");
+});
+
+app.get('/joke', function(req, res){
+    res.send(joke);
 });
 
 app.listen(8080);
