@@ -27,4 +27,21 @@ app.get('/add', function(req,res) {
     res.send("X + Y =" + (x+y));
 });
 
+app.get('/calc', function(req,res){
+    var x = parseInt(req.query.x);
+    var y = parseInt(req.query.y);
+    var op = req.query.operator;
+
+    if (op == "add") {
+        res.send("X + Y =" + (x+y));
+    } else if (op == "sub") {
+        res.send("X - Y =" + (x-y));
+    } else if (op == "mult") {
+        res.send("X * Y =" + (x*y));
+    } else if (op == "div"){
+        res.send("X / Y =" + (x/y));
+    } else {
+        res.send("huh??");
+    }
+})
 app.listen(8080);
