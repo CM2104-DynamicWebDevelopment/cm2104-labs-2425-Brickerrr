@@ -1,8 +1,8 @@
 var express = require('express');
 var knockknock= require('knock-knock-jokes');
-app.use(express.static('public'));
 var app = express();
 var joke = knockknock();
+app.use(express.static('public'));
 
 app.get('/', function(req, res){
     res.send("Hello World! by express");
