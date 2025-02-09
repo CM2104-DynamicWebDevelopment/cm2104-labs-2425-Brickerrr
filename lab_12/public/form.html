@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Form Test</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <h1>Express Static Form</h1>
@@ -13,11 +14,11 @@ What is your Quest:<br>
 <input type="button" value="Submit" id ="submit"/>
 </form>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js">
+<script>
     $('#submit').click(handleClick);
 
     function handleClick() {
-        
+
         alert("clickd");
         var nametosend = $('#name').val();
         var questtosend = $('#quest').val();
