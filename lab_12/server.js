@@ -29,4 +29,17 @@ app.get('/', function(req,res) {
     res.send("Hello")
 });
 
+app.get('/searchLove', function (req,res) {
+    getTracks('love', res);
+});
+
+async function getTracks(searchterm, res) {
+    spotifyApi.searchTracks(searchterm)
+    .then(function(data) {
+        res.send(JSON.stringify(data.body));
+    }, function(err) {
+        console.error(err);
+    });
+}
+
 app.listen(8080);
