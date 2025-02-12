@@ -62,7 +62,8 @@ app.get('/search', function (req,res ) {
     getTracks(searchterm,res);
 });
 
-async function getTopTracks(artist, res) {
+async function getTopTracks(artistName, res) {
+    var artist = await getArtistId(artistName);
     spotifyApi.getArtistTopTracks(artist, 'GB')
     .then(function (data) {
     console.log(data.body);
