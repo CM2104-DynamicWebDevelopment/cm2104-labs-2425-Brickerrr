@@ -73,7 +73,7 @@ async function getTopTracks(artist, res) {
 
 app.get('/topSearch', function(req, res) {
     var topterm = req.query.topterm;
-    console.log(topterm);
+    console.log("term is" + topterm);
     getTopTracks(topterm,res);
 })
 
