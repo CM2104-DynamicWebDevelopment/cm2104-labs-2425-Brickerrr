@@ -62,4 +62,18 @@ app.get('/search', function (req,res ) {
     getTracks(searchterm,res);
 });
 
+async function getTopTracks(artist, res) {
+    spotifyApi.getArtistTopTracks(artist, 'GB')
+    .then(function (data) {
+    console.log(data.body);
+    }, function (err) {
+    console.log('Something went wrong!', err);
+    });
+}
+
+app.get('/topSearch', function(req, res) {
+    var topterm = req.query.topterm;
+    getTopTracks(topterm,res);
+})
+
 app.listen(8080);

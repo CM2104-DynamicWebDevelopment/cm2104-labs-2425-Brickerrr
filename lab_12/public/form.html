@@ -6,11 +6,18 @@
 </head>
 <body>
 
-<h1>Express Static Form</h1>
+<h1>Search</h1>
 <form>
 What is search term? :<br>
 <input type="text" name="search" value="" id = "searchterm"/><br><br>
 <input type="button" value="Submit" id ="submit"/>
+</form>
+
+<h1>top Tracks</h1>
+<form>
+Or search for an Artists top tracks :<br>
+<input type="text" name="search" value="" id = "topterm"/><br><br>
+<input type="button" value="Submit" id ="topsubmit"/>
 </form>
 
 <div id="result"></div>
@@ -23,6 +30,26 @@ What is search term? :<br>
         var searchterm = $('#searchterm').val();
 
         var url = "/search?"+"searchterm="+searchterm;
+
+        $.ajax(
+            {url: url,
+                success: function(result) {
+                    $("#result").html(result);
+                }
+            }
+        );
+        return false;
+    }
+</script>
+
+<script>
+    $('#topsubmit').click(handleClick);
+
+    function handleClick() {
+
+        var searchterm = $('#topterm').val();
+
+        var url = "/topSearch?"+"topterm="+searchterm;
 
         $.ajax(
             {url: url,
