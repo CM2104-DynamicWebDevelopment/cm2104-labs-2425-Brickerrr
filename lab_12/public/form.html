@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Test</title>
+</head>
+<body>
+
+<h1>Express Static Form</h1>
+<form>
+What is search term? :<br>
+<input type="text" name="search" value="" id = "searchterm"/><br><br>
+<input type="button" value="Submit" id ="submit"/>
+</form>
+
+<div id="result"></div>
+
+<script>
+    $('#submit').click(handleClick);
+
+    function handleClick() {
+
+        var searchterm = $('#searchterm').val();
+
+        var url = "/se?"+"searchterm="+searchterm;
+
+        $.ajax(
+            {url: url,
+                success: function(result) {
+                    $("#result").html(result);
+                }
+            }
+        );
+        return false;
+    }
+</script>
+</body>
+</html>
