@@ -77,7 +77,7 @@ async function getTopTracks(artistName, res) {
     var artist = await getArtistId(artistName);
     spotifyApi.getArtistTopTracks(artist, 'GB')
     .then(function (data) {
-        var tracks = data.body.artists.items;
+        var tracks = data.body.tracks;
         var htmlResponse = "";
 
         for (var i =0; i <tracks.length;i++) {
