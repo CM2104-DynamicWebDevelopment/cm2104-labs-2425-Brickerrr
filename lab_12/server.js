@@ -68,6 +68,7 @@ async function getArtistId(artistName) {
     if (data.body.artists.items.length === 0) {
         throw new Error('Artist not found');
     }
+    console.log(data.body);
     return data.body.artists.items[0].id; 
 
 }
