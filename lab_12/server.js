@@ -51,7 +51,7 @@ async function getTracks(searchterm, res) {
             "</div>";
             console.log(htmlResponse);
         }
-        res.send(JSON.stringify(data.body));
+        res.send(htmlResponse);
     }, function(err) {
         console.error(err);
     });
