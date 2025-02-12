@@ -66,6 +66,7 @@ async function getTopTracks(artist, res) {
     spotifyApi.getArtistTopTracks(artist, 'GB')
     .then(function (data) {
     console.log(data.body);
+    res,send(data.body);
     }, function (err) {
     console.log('Something went wrong!', err);
     });
@@ -73,7 +74,7 @@ async function getTopTracks(artist, res) {
 
 app.get('/topSearch', function(req, res) {
     var topterm = req.query.topterm;
-    console.log("term is" + topterm);
+    console.log("term is" +topterm);
     getTopTracks(topterm,res);
 })
 
