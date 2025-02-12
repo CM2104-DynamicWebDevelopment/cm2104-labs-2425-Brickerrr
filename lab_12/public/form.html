@@ -48,7 +48,7 @@ Or search for an Artists top tracks :<br>
     function handletopClick() {
 
         var topterm = $('#topterm').val();
-
+        comsole.log(topterm);
         var url = "/topSearch?"+"topterm="+topterm;
 
         $.ajax(
