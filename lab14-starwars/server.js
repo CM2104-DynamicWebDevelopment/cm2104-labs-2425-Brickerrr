@@ -40,11 +40,11 @@ async function connectDB() {
 //you need to complete these
 
 app.get('/', function(req,res) {
-  var quotesArray = db.collection('quotes').find().toArray(function(err, result) {
+  db.collection('quotes').find().toArray(function(err, result) {
     if (err) throw err;
     console.log(result);
   });
-  res.render('pages/index', {quotesArray:quotesArray});
+  res.render('pages/index', {quotesArray:result});
 });
 app.get('/add', function(req,res) {
   res.render('pages/add')
