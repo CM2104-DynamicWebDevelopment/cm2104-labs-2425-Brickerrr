@@ -15,7 +15,13 @@
     <div class="jumbotron">
 
       <h2>Quotes!</h2>
-
+      <ul>
+      <% quotesArray.forEach(function(quotesArray) { %>
+      <li>
+      <%= quotesArray.name %> -
+      <%= quotesArray.quote %>
+      </li>
+      <% }); %>
     </div>
   </main>
 
