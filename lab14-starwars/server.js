@@ -43,8 +43,8 @@ app.get('/', function(req,res) {
   db.collection('quotes').find().toArray(function(err, result) {
     if (err) throw err;
     console.log(result);
+    res.render('pages/index', {quotesArray:result});
   });
-  res.render('pages/index', {quotesArray:result});
 });
 app.get('/add', function(req,res) {
   res.render('pages/add')
