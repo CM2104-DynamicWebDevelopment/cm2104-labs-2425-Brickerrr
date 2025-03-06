@@ -60,7 +60,7 @@ app.get('/', function(req, res) {
   db.collection('people').find().toArray(function(err, result) {
     if (err) throw err;
     //the result of the query is sent to the users page as the "users" array
-    var uname = req.query.username;
+    var uname = req.query.uname;
     console.log(uname);
     db.collection('people').findOne({"login.username":uname}, function(err, user) {
       if (err) throw err;
