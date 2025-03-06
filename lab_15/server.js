@@ -56,14 +56,13 @@ async function connectDB() {
 app.get('/', function(req, res) {
   //if the user is not logged in redirect them to the login page
   if(!req.session.loggedin){res.redirect('/login');return;}
-
   //otherwise perfrom a search to return all the documents in the people collection
   db.collection('people').find().toArray(function(err, result) {
     if (err) throw err;
     //the result of the query is sent to the users page as the "users" array
     
     res.render('pages/users', {
-      users: result
+      users: result,
     })
   });
 
@@ -89,7 +88,8 @@ app.get('/profile', function(req, res) {
 
 
     res.render('pages/profile', {
-      user: result
+      user: result,
+      logged: db.collection('people').findOne({"login.username": uname})
     })
   });
 
@@ -135,7 +135,7 @@ app.post('/dologin', function(req, res) {
 
 
 
-    if(result.login.password == pword){ req.session.loggedin = true; res.redirect('/?username='+uname) }
+    if(result.login.password == pword){ req.session.loggedin = true; res.redirect('/') }
 
 
 
