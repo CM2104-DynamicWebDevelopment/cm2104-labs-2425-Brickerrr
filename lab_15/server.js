@@ -61,7 +61,8 @@ app.get('/', function(req, res) {
   db.collection('people').find().toArray(function(err, result) {
     if (err) throw err;
     //the result of the query is sent to the users page as the "users" array
-    res.render('pages/users', {
+    
+    res.render('pages/users?username=uname', {
       users: result
     })
   });
@@ -71,6 +72,7 @@ app.get('/', function(req, res) {
 //this is our login route, all it does is render the login.ejs page.
 app.get('/login', function(req, res) {
   res.render('pages/login');
+  console.log(username);
 });
 
 
@@ -137,7 +139,7 @@ app.post('/dologin', function(req, res) {
 
 
 
-    else{res.redirect('/login')}
+    else{res.redirect('/login?username='+ uname)}
   });
 });
 
