@@ -61,6 +61,7 @@ app.get('/', function(req, res) {
     if (err) throw err;
     //the result of the query is sent to the users page as the "users" array
     var uname = req.query.username;
+    console.log(uname);
     db.collection('people').findOne({"login.username":uname}, function(err, user) {
       if (err) throw err;
 
@@ -89,7 +90,6 @@ app.get('/profile', function(req, res) {
   
   
   var uname = req.query.username;
-  console.log(uname);
  
   db.collection('people').findOne({"login.username": uname}, function(err, result) {
     if (err) throw err;
