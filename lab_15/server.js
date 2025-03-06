@@ -62,7 +62,7 @@ app.get('/', function(req, res) {
     if (err) throw err;
     //the result of the query is sent to the users page as the "users" array
     
-    res.render('pages/users?username='+uname, {
+    res.render('pages/users?username='+username, {
       users: result
     })
     console.log(username);
