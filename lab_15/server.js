@@ -63,13 +63,16 @@ app.get('/', function(req, res) {
     var uname = req.query.username;
     db.collection('people').findOne({"login.username":uname}, function(err, user) {
       if (err) throw err;
+
+      res.render('pages/users', {
+        users: result,
+        loggedUser: user,
+    
+      })
+      console.log(user);
+
     });
-    res.render('pages/users', {
-      users: result,
-      loggedUser: user,
-  
-    })
-    console.log(user);
+    
   });
 
 });
