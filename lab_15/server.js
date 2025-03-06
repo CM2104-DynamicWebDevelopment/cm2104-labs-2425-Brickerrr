@@ -63,7 +63,7 @@ app.get('/', function(req, res) {
     //the result of the query is sent to the users page as the "users" array
     
     res.render('pages/users?username=uname', {
-      users: result;
+      users: result
     })
     console.log(username);
   });
