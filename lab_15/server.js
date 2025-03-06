@@ -63,8 +63,9 @@ app.get('/', function(req, res) {
     //the result of the query is sent to the users page as the "users" array
     
     res.render('pages/users?username=uname', {
-      users: result
+      users: result;
     })
+    console.log(username);
   });
 
 });
@@ -72,7 +73,7 @@ app.get('/', function(req, res) {
 //this is our login route, all it does is render the login.ejs page.
 app.get('/login', function(req, res) {
   res.render('pages/login');
-  console.log(username);
+  
 });
 
 
