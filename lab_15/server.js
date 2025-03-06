@@ -60,9 +60,10 @@ app.get('/', function(req, res) {
   db.collection('people').find().toArray(function(err, result) {
     if (err) throw err;
     //the result of the query is sent to the users page as the "users" array
-    
+    var user = db.collection('people').findOne({"login.username":uname});
     res.render('pages/users', {
       users: result,
+      loggedUser: user
     })
   });
 
@@ -89,7 +90,6 @@ app.get('/profile', function(req, res) {
 
     res.render('pages/profile', {
       user: result,
-      logged: db.collection('people').findOne({"login.username": uname})
     })
   });
 
