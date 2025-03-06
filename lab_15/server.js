@@ -64,7 +64,8 @@ app.get('/', function(req, res) {
     var user = db.collection('people').findOne({"login.username":uname});
     res.render('pages/users', {
       users: result,
-      loggedUser: user
+      loggedUser: user,
+  
     })
   });
 
