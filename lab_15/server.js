@@ -65,7 +65,6 @@ app.get('/', function(req, res) {
     res.render('pages/users', {
       users: result
     })
-    console.log(username);
   });
 
 });
