@@ -62,7 +62,7 @@ app.get('/', function(req, res) {
     if (err) throw err;
     //the result of the query is sent to the users page as the "users" array
     
-    res.render('pages/users?username=uname', {
+    res.render('pages/users?username='+uname, {
       users: result
     })
     console.log(username);
@@ -140,7 +140,7 @@ app.post('/dologin', function(req, res) {
 
 
 
-    else{res.redirect('/login?username='+ uname)}
+    else{res.redirect('/login')}
   });
 });
 
