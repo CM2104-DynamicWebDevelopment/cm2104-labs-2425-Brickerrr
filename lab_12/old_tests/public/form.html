@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Test</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1>Express Static Form</h1>
+<form>
+Name:<br>
+<input type="text" name="name" value="" id ="name"/><br>
+What is your Quest:<br>
+<input type="text" name="quest" value="" id = "quest"/><br><br>
+<input type="button" value="Submit" id ="submit"/>
+</form>
+
+<div id="result"></div>
+
+<script>
+    $('#submit').click(handleClick);
+
+    function handleClick() {
+
+        var nametosend = $('#name').val();
+        var questtosend = $('#quest').val();
+
+        var url = "/getform?"+"name="+nametosend+"&quest="+questtosend;
+
+        $.ajax(
+            {url: url,
+                success: function(result) {
+                    $("#result").html(result);
+                }
+            }
+        );
+        return false;
+    }
+</script>
+</body>
+</html>

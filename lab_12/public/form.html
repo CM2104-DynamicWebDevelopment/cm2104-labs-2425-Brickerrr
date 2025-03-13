@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Test</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h1>Search</h1>
+<form>
+What is search term? :<br>
+<input type="text" name="search" value="" id = "searchterm"/><br><br>
+<input type="button" value="Submit" id ="submit"/>
+</form>
+
+<h1>top Tracks</h1>
+<form>
+Or search for an Artists top tracks :<br>
+<input type="text" name="search" value="" id = "topterm"/><br><br>
+<input type="button" value="Submit" id ="topsubmit"/>
+</form>
+
+<div id="result"></div>
+
+<script>
+    $('#submit').click(handleClick);
+
+    function handleClick() {
+
+        var searchterm = $('#searchterm').val();
+
+        var url = "/search?"+"searchterm="+searchterm;
+
+        $.ajax(
+            {url: url,
+                success: function(result) {
+                    $("#result").html(result);
+                }
+            }
+        );
+        return false;
+    }
+</script>
+
+<script>
+    $('#topsubmit').click(handletopClick);
+
+    function handletopClick() {
+
+        var topterm = $('#topterm').val();
+        var url = "/topSearch?"+"topterm="+topterm;
+
+        $.ajax(
+            {url: url,
+                success: function(result) {
+                    $("#result").html(result);
+                }
+            }
+        );
+        return false;
+    }
+</script>
+</body>
+</html>
